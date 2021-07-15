@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Film;
+use App\Models\post;
 
 class HomeController extends Controller
 {
@@ -23,10 +23,30 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $films = Film::all();
+        // if ($request->user()->role == 'admin')
+        // {
+        // // return redirect('/admin');
+        // return view('page.admin');
+        // }
+        // if ($request->user()->role == 'user')
+        // {
+        //     // return redirect('/user');
+        //     return view('page.user');
+        // }
+        // if ($request->user()->role == NULL)
+        // {
+        // dd('role is Null');
+        // }
+        // else{
+        //     dd('hello mother f**ker');
+        // }
+        
+        // return view('home');
 
-        return view('home', ['films' => $films]);
+        // $movies = post::all();
+
+        // return view('home', ['movies' => $movies]);
     }
 }

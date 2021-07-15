@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFilmsTable extends Migration
+class AddColumnToUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateFilmsTable extends Migration
      */
     public function up()
     {
-        Schema::create('films', function (Blueprint $table) {
-            $table->id();
-            $table->string('image');
-            $table->string('titre');
-            $table->date('dateSort');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            
+            $table->string('role')->default('user');
         });
     }
 
@@ -29,6 +26,8 @@ class CreateFilmsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('films');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }

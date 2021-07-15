@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Film;
 use Illuminate\Http\Request;
 
-class FilmController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class FilmController extends Controller
      */
     public function index()
     {
-        //
+        return view('page.admin');
     }
 
     /**
@@ -41,10 +40,10 @@ class FilmController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Film  $film
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Film $film)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class FilmController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Film  $film
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Film $film)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class FilmController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Film  $film
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Film $film)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class FilmController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Film  $film
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Film $film)
+    public function destroy($id)
     {
         //
     }

@@ -23,9 +23,24 @@ class RedirectionUser
         }
         if ($request->user()->role == 'user')
         {
-            return redirect('/user');
+            return redirect('/');
             // return view('page.user');
         }
+        if ($request->user()->role == NULL)
+        {
+        dd('role is Null');
+        }
+        else{
+            dd('hello mother f****r');
+        }
+
+        // if (Auth::user()->role==="user") {
+        //     // return redirect(RouteServiceProvider::HOME);
+        //     return redirect('/user');
+        // }else{
+        //     return redirect('/admin');
+        // }
+        
         return $next($request);
     }
 }

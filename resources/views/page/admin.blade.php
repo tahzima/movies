@@ -53,8 +53,8 @@
                       {{-- <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"> --}}
                     </div>
                     <div class="row">
-                      <div class="col-md-6 text-right ms-auto">
-                        <button type="submit" class="btn btn-round bg-gradient-info mb-0">Send Message</button>
+                      <div class="col-12 text-right ms-auto">
+                        <button type="submit" class="btn btn-rounded bg-warning text-white mb-0">Send Message</button>
                       </div>
                     </div>
                   </div>
@@ -62,7 +62,6 @@
               </div>
               <div class="col-lg-5 position-relative bg-cover px-0 bg-dark" style="background-image: url('{{asset('images/curved5.jpg')}}')">
                 <div class="position-absolute z-index-2 w-100 h-100 top-0 start-0 d-lg-block d-none">
-                  <img src="./images/wave-1.svg" class="h-100 ms-n2">
                 </div>
                 <div class="z-index-2 text-center d-flex h-100 w-100 d-flex m-auto justify-content-center">
                   <div class="mask bg-gradient-info opacity-9"></div>
@@ -80,27 +79,40 @@
       </div>
   </section>
 
-  <table class="table">
-    <thead class="table-light">
+  <table class="table table-hover ">
+    <thead class="table-dark ">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">id Post</th>
+        <th scope="col">Image</th>
+        <th scope="col">Title</th>
+        <th scope="col">Date sort</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="bg-light">
 
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
+      @foreach ($movies as $movie)
+        <tr>
+            <td>{{ $movie->id }}</td>
+            <td>{{ $movie->titre }}</td>
+            <td><img src="{{ url('image/'.$movie->image) }}" height="50px" alt=""></td>
+            <td>{{ $movie->dateSort }}</td>
+            <td>
+              
+              <form action="{{ url('admin/'.$movie->id) }}" method="post">
+                  {{ csrf_field() }}
+                  {{ method_field("DELETE") }}
+
+                  <a href="{{ url('admin/'.$movie->id.'/edit') }}" class="btn btn-warning">Editer</a>
+                  
+                  <button type="submit" class="btn btn-danger " >Supprimer</button>
+              </form>
+            </td>
+        </tr>
+      @endforeach
 
     </tbody>
   </table>
-  
 
                 </div>
             </div>
